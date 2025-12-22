@@ -1,6 +1,6 @@
 import { useState, useEffect} from 'react';
 import Map from '../../components/Map/Map';
-import './CreateMeetupPage.css';
+import styles from './CreateMeetupPage.module.css';
 import Button from '../../components/Button/Button';
 
 function CreateMeetupPage() {
@@ -83,46 +83,46 @@ function CreateMeetupPage() {
     };
 
     return (
-        <form className="form" onSubmit={handleSubmit}>
+        <form className={styles.form} onSubmit={handleSubmit}>
             <h2>Create a New Meetup</h2>
 
-            <div className="form__group">
+            <div className={styles.form__group}>
                 <label htmlFor="title">Title</label>
-                <input name="title" value={form.title} onChange={handleChange} type="text" id="title" className='form__input' />
+                <input name="title" value={form.title} onChange={handleChange} type="text" id="title" className={styles.form__input} required />
             </div>
 
-            <div className="form__group">
+            <div className={styles.form__group}>
                 <label htmlFor="description">Description</label>
-                <input name="description" value={form.description} onChange={handleChange} type="text" id="description" className='form__input' />
+                <input name="description" value={form.description} onChange={handleChange} type="text" id="description" className={styles.form__input} required />
             </div>
 
-            <div className="form__group form__group--map">
+            <div className={[styles.form__group, styles['form__group--map']].join(' ')}>
                 <label htmlFor="">Select location</label>
                 <Map position={position || [0, 0]} setPosition={setPosition} />
             </div>
 
-            <div className="form__group">
+            <div className={styles.form__group}>
                 <label htmlFor="date">Date</label>
-                <input name="date" value={form.date} onChange={handleChange} type="date" id="date" className='form__input' />
+                <input name="date" value={form.date} onChange={handleChange} type="date" id="date" className={styles.form__input} required />
             </div>
 
-            <div className="form__group">
+            <div className={styles.form__group}>
                 <label htmlFor="startTime">Start Time</label>
-                <input name="startTime" value={form.startTime} onChange={handleChange} type="time" id="startTime" className='form__input' />
+                <input name="startTime" value={form.startTime} onChange={handleChange} type="time" id="startTime" className={styles.form__input} required />
             </div>
 
-            <div className="form__group">
+            <div className={styles.form__group}>
                 <label htmlFor="endTime">End Time</label>
-                <input name="endTime" value={form.endTime} onChange={handleChange} type="time" id="endTime" className='form__input' />
+                <input name="endTime" value={form.endTime} onChange={handleChange} type="time" id="endTime" className={styles.form__input} required />
             </div>
 
-            <div className="form__group">
+            <div className={styles.form__group}>
                 <label htmlFor="locationName">Location Name</label>
-                <input name="locationName" value={form.locationName} onChange={handleChange} type="text" id="locationName" className='form__input' />
+                <input name="locationName" value={form.locationName} onChange={handleChange} type="text" id="locationName" className={styles.form__input} required />
             </div>
 
             {message && (
-                <p className={message.type === 'error' ? 'form__message form__message--error' : 'form__message form__message--success'}>
+                <p className={styles.form__message + ' ' + (message.type === 'success' ? styles['form__message--success'] : styles['form__message--error'])}>
                     {message.text}
                 </p>
             )}
