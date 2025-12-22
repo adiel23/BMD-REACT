@@ -48,14 +48,19 @@ function CreateMeetupPage() {
                 startTime: form.startTime,
                 endTime: form.endTime,
                 locationName: form.locationName,
-                lat: position[0],
-                lon: position[1]
+                latitude: position[0],
+                longitude: position[1]
             };
+
+            console.log('payload: ', payload);
 
             // Cambia la URL por la de tu API
             const res = await fetch('http://localhost:3000/meetups', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                },
                 body: JSON.stringify(payload)
             });
 
