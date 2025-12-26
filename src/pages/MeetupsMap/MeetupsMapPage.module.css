@@ -1,0 +1,46 @@
+.map-wrapper {
+    height: 100vh;
+}
+
+.search {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: white;
+    z-index: 5000;
+    height: 100%;
+}
+
+.search__container {
+    display: flex;
+    gap: 10px;
+}
+
+.search__input {
+    padding: 5px;
+    flex-grow: 1;
+}
+
+.search__close-btn {
+    padding: 5px 10px;
+}
+
+.search__result-item {
+    padding: 10px;
+}
+
+.search__result-item:hover {
+    background: lightgrey;
+}
+
+@media (min-width: 768px) {
+    .search {
+        width: 400px;
+        box-shadow: 10px 0px 10px 10px rgba(0, 0, 0, 0.1);
+    }
+}

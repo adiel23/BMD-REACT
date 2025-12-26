@@ -32,10 +32,14 @@ function Hero() {
         }
     }
 
+    const handleOpenMap = () => {
+        navigate('/meetups-map');
+    }
+
     return (
         <section className={styles.hero}>
             <h2 className={styles.hero__title}>Find Bitcoin Meetups in El Salvador</h2>
-            <Button text="Open Map"/>
+            <Button text="Open Map" onClick={handleOpenMap}/>
             <Button text="Create Meetup" onClick={handleCreateMeetup} />
         </section>
     )
