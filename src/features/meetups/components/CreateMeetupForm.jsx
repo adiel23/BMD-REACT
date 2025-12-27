@@ -1,10 +1,8 @@
-import { useState, useEffect} from 'react';
-import Map from '../../components/Map/Map';
-import styles from './CreateMeetupPage.module.css';
-import Button from '../../components/Button/Button';
+import { useState } from 'react';
+import styles from './CreateMeetupForm.module.css';
+import CreateMeetupFormMap from './CreateMeetupFormMap';
 
-function CreateMeetupPage() {
-    const [position, setPosition] = useState(null);
+function CreateMeetupForm({position, setPosition, message, onSubmit}) {
     const [form, setForm] = useState({
         title: '',
         description: '',
@@ -13,22 +11,6 @@ function CreateMeetupPage() {
         endTime: '',
         locationName: ''
     });
-    const [loading, setLoading] = useState(false);
-    const [message, setMessage] = useState(null);
-
-    useEffect(() => {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(
-                (pos) => {
-                    const lat = pos.coords.latitude;
-                    const lon = pos.coords.longitude;
-                    setPosition([lat, lon]);
-                    console.log(lat, lon);
-                } ,
-                (error) => console.error(error)
-            );
-        }
-    }, []);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -37,50 +19,31 @@ function CreateMeetupPage() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setMessage(null);
 
-        setLoading(true);
-        try {
-            const payload = {
-                title: form.title,
-                description: form.description,
-                date: form.date,
-                startTime: form.startTime,
-                endTime: form.endTime,
-                locationName: form.locationName,
-                latitude: position[0],
-                longitude: position[1]
-            };
+        if (!position) {
+            alert('Please select a location on the map.');
+            return;
+        };
 
-            console.log('payload: ', payload);
+        const [lat, lon] = position;
 
-            // Cambia la URL por la de tu API
-            const res = await fetch('http://localhost:3000/meetups', {
-                method: 'POST',
-                headers: { 
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`
-                },
-                body: JSON.stringify(payload)
+        const success = await onSubmit({
+            ...form,
+            latitude: lat,
+            longitude: lon
+        });
+
+        if (success) {
+            setForm({
+                title: '',
+                description: '',
+                date: '',
+                startTime: '',
+                endTime: '',
+                locationName: ''
             });
-
-            const data = await res.json();
-
-            if (!res.ok) {
-                const errTxt = data?.message || 'Error creating meetup';
-                throw new Error(errTxt);
-            }
-
-            setMessage({ type: 'success', text: data.message || 'Meetup created successfully!' });
-            setForm({ title: '', description: '', date: '', startTime: '', endTime: '', locationName: '' });
-            setPosition(null);
-        } catch (error) {
-            console.error(error);
-            setMessage({ type: 'error', text: error.message || 'Error creating meetup' });
-        } finally {
-            setLoading(false);
         }
-    };
+    }
 
     return (
         <form className={styles.form} onSubmit={handleSubmit}>
@@ -98,7 +61,7 @@ function CreateMeetupPage() {
 
             <div className={[styles.form__group, styles['form__group--map']].join(' ')}>
                 <label htmlFor="">Select location</label>
-                <Map position={position || [0, 0]} setPosition={setPosition} />
+                <CreateMeetupFormMap position={position} setPosition={setPosition} />
             </div>
 
             <div className={styles.form__group}>
@@ -127,9 +90,9 @@ function CreateMeetupPage() {
                 </p>
             )}
 
-            <Button text={loading ? 'Enviando...' : 'Create Meetup'} type="submit" disabled={loading} />
+            <button type="submit" className={styles.form__submit}>Create Meetup</button>
         </form>
     )
 }
 
-export default CreateMeetupPage;
+export default CreateMeetupForm;

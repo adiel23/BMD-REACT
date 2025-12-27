@@ -1,7 +1,8 @@
 import 'leaflet/dist/leaflet.css';
+import { useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvents } from 'react-leaflet';
 
-function Map({position, setPosition}) {
+function CreateMeetupFormMap({position, setPosition}) {
 
   function ClickHandler() {
     useMapEvents({
@@ -27,8 +28,8 @@ function Map({position, setPosition}) {
         </Popup>
       </Marker>
 
-      <ChangeView position={position}/>
       <ClickHandler />
+      <ChangeView position={position}/>
     </MapContainer>
   );
 };
@@ -36,8 +37,14 @@ function Map({position, setPosition}) {
 // Auxiliar component to update the map view
 function ChangeView({ position }) {
   const map = useMap(); // get the map instance
-  map.setView(position);
+
+  useEffect(() => {
+    if (position) {
+      map.setView(position);
+    }
+  }, [position, map]);
+  
   return null;
 }
 
-export default Map;
+export default CreateMeetupFormMap;
