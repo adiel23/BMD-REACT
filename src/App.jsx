@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import CreateMeetupPage from "./pages/CreateMeetupPage/CreateMeetupPage";
-import Login from "./pages/Login/Login";
 import MeetupsMapPage from "./pages/MeetupsMap/MeetupsMapPage";
+import LoginPage from "./features/auth/pages/LoginPage";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/create-meetup" element={<CreateMeetupPage/>} />
-        <Route path="/login" element={<Login/>} />
+        <Route path="/login" element={<LoginPage/>} />
         <Route path="/meetups-map" element={<MeetupsMapPage/>}/>
       </Routes>
     </BrowserRouter>
