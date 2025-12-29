@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home/Home";
-import CreateMeetupPage from "./features/meetups/pages/CreateMeetupPage";
+import Home from "./features/home/pages/Home";
 import MeetupsMapPage from "./features/meetups/pages/MeetupsMapPage";
+import CreateMeetupPage from "./features/meetups/pages/CreateMeetupPage";
 import LoginPage from "./features/auth/pages/LoginPage";
 
 function App() {
@@ -9,9 +9,9 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home/>} />
+        <Route path="/meetups-map" element={<MeetupsMapPage/>}/>
         <Route path="/create-meetup" element={<CreateMeetupPage/>} />
         <Route path="/login" element={<LoginPage/>} />
-        <Route path="/meetups-map" element={<MeetupsMapPage/>}/>
       </Routes>
     </BrowserRouter>
   )
