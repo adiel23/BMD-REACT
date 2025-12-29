@@ -13,16 +13,6 @@
     text-align: center;
 }
 
-.form__group {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.form__input {
-    padding: 5px;
-}
-
 .form__error-message {
     color: red;
     text-align: center;

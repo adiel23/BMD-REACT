@@ -5,9 +5,14 @@ import { useState } from "react";
 export function useLogin() {
     const navigate = useNavigate();
 
+    const [form, setForm] = useState({
+        email: '',
+        password: ''
+    });
+
     const [errorMessage, setErrorMessage] = useState("");
 
-    async function submit(form) {
+    async function submit() {
         try {
             const data = await login({
                 email: form.email,
@@ -23,5 +28,5 @@ export function useLogin() {
         }
     }
 
-    return {errorMessage, submit};
+    return {setForm, submit, errorMessage};
 }
