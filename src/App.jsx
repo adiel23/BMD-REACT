@@ -1,17 +1,17 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home/Home";
-import CreateMeetupPage from "./pages/CreateMeetupPage/CreateMeetupPage";
-import Login from "./pages/Login/Login";
-import MeetupsMapPage from "./pages/MeetupsMap/MeetupsMapPage";
+import Home from "./features/home/pages/Home";
+import MeetupsMapPage from "./features/meetups/pages/MeetupsMapPage";
+import CreateMeetupPage from "./features/meetups/pages/CreateMeetupPage";
+import LoginPage from "./features/auth/pages/LoginPage";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home/>} />
-        <Route path="/create-meetup" element={<CreateMeetupPage/>} />
-        <Route path="/login" element={<Login/>} />
         <Route path="/meetups-map" element={<MeetupsMapPage/>}/>
+        <Route path="/create-meetup" element={<CreateMeetupPage/>} />
+        <Route path="/login" element={<LoginPage/>} />
       </Routes>
     </BrowserRouter>
   )

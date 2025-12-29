@@ -27,3 +27,16 @@
     color: red;
     text-align: center;
 }
+
+.form__button {
+    background: #ffb728;
+    padding: 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+}
+
+.form__button:hover {
+    opacity: .9;
+}

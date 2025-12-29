@@ -1,3 +1,17 @@
+.home {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    padding: 20px;
+}
+
+.header__title {
+    color: #ffb728;
+}
+
 .hero {
     flex: 1;
     display: flex;
@@ -18,4 +32,9 @@
     border-radius: 20px;
     font-weight: bold;
     cursor: pointer;
+    color: white;
+}
+
+.hero__btn:hover {
+    opacity: .9;
 }

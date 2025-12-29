@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useMap } from "react-leaflet";
 
-function ChangeView({ position, zoom}) {
+function UpdateMapView({ position, zoom}) {
   const map = useMap(); // get the map instance
   useEffect(() => {
     if (!position) return;
@@ -12,4 +12,4 @@ function ChangeView({ position, zoom}) {
   return null;
 }
 
-export default ChangeView;
+export default UpdateMapView;

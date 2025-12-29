@@ -1,17 +1,11 @@
-import { useNavigate } from "react-router-dom";
-import Button from "../../components/Button/Button";
 import { useState } from "react";
-import styles from './Login.module.css';
+import styles from './LoginForm.module.css';
 
-function Login() {
-    const navigate = useNavigate();
-
+function LoginForm({onSubmit, errorMessage}) {
     const [form, setForm] = useState({
         email: '',
         password: ''
     });
-
-    const [errorMessage, setErrorMessage] = useState("");
 
     function handleChange(event) {
         const {name, value} = event.target;
@@ -21,31 +15,9 @@ function Login() {
 
     async function handleSubmit(event) {
         event.preventDefault();
-
-        try {
-            const res = await fetch("http://localhost:3000/auth/login", {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(form)
-            });
-
-            const data = await res.json();
-
-            if (res.ok) {
-                localStorage.setItem('token', data.token);
-                navigate('/');
-            } else {
-                console.error(data.message || 'Login failed');
-                setErrorMessage(data.message || 'Login failed');
-            }
-        } catch (error) {
-            console.error("Login error: ", error);
-            setErrorMessage("An error occurred during login. Please try again.");
-        }
+        onSubmit(form);
     }
-    
+
     return (
         <form className={styles.form} onSubmit={handleSubmit}>
             <h2 className={styles.form__title}>Login</h2>
@@ -61,9 +33,9 @@ function Login() {
                 && 
                 <p className={styles['form__error-message']}>{errorMessage}</p>
             }
-            <Button text="Login" type="submit" />
+            <button type="submit" className={styles.form__button}>Login</button>
         </form>
     )
 }
 
-export default Login;
+export default LoginForm;
