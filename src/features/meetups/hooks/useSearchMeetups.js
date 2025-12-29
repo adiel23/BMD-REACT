@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getMeetups } from "../services/meetups.service";
 
 export function useSearchMeetups() {
@@ -7,24 +7,32 @@ export function useSearchMeetups() {
     const [inputValue, setInputValue] = useState('');
     const [searchResults, setSearchResults] = useState([]);
 
-    async function search() {
+    useEffect(() => {
+
         const title = inputValue.trim();
 
         if (title === '') {
+            setHasSearched(false);
+            setSearchResults([]);
             return;
         }
 
+        setHasSearched(true);
+
         const filters = { title };
 
-        try {
-            const meetups = await getMeetups(filters);
-            setSearchResults(meetups);  
-            setHasSearched(true);
-        } catch (error) {
-            console.error("Search meetups error: ", error);
+        async function fetchMeetups() {
+            try {
+                const meetups = await getMeetups(filters);
+                setSearchResults(meetups);  
+            } catch (error) {
+                console.error("Search meetups error: ", error);
+            }
         }
-    }
 
-    return {isSearchOpen, inputValue, hasSearched, searchResults, search, setInputValue, setIsSearchOpen};
+        fetchMeetups();
+    }, [inputValue]);
+
+    return {isSearchOpen, inputValue, hasSearched, searchResults, setInputValue, setIsSearchOpen};
 
 }

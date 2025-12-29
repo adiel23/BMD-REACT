@@ -28,8 +28,6 @@ export async function getMeetups(filters) {
 
     const data = await response.json();
 
-    console.log("meetups: ", data.meetups);
-
     if (!response.ok) {
         throw new Error(data.message || 'Could not fetch meetups.');
     }
