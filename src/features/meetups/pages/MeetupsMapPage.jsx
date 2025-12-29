@@ -16,7 +16,6 @@ function MeetupsMapPage() {
         inputValue,
         hasSearched,
         searchResults,
-        search,
         setInputValue,
         setIsSearchOpen
     } = useSearchMeetups();
@@ -40,7 +39,6 @@ function MeetupsMapPage() {
                         searchResults
                     }}
                     actions={{
-                        search,
                         setInputValue,
                         onCloseSearch: () => setIsSearchOpen(false),
                         onSelectMeetup: handleMeetupSelection

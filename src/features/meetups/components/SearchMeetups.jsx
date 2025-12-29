@@ -4,18 +4,13 @@ function SearchMeetups({ui, actions}) {
 
     const {inputValue, hasSearched, searchResults} = ui;
 
-    const {search, setInputValue, onCloseSearch, onSelectMeetup} = actions;
-    
-    function handleSearchSubmit(e) {
-        e.preventDefault();
-        search()
-    }
+    const {setInputValue, onCloseSearch, onSelectMeetup} = actions;
 
     return (
         <div className={styles.search}>
             <form 
                 className={styles.search__container}
-                onSubmit={handleSearchSubmit}
+                onSubmit={(e) => e.preventDefault()}
             >
                 <input
                     type="text"
