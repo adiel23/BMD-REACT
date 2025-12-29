@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from './LoginForm.module.css';
+import { Link } from "react-router-dom";
 
 function LoginForm({onSubmit, errorMessage}) {
     const [form, setForm] = useState({
@@ -33,6 +34,7 @@ function LoginForm({onSubmit, errorMessage}) {
                 && 
                 <p className={styles['form__error-message']}>{errorMessage}</p>
             }
+            <p className={styles.form__message}>Don't have an account? <Link to="/register">Register here</Link></p>
             <button type="submit" className={styles.form__button}>Login</button>
         </form>
     )

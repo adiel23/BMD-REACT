@@ -1,0 +1,11 @@
+.home-icon {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.home-icon:hover {
+    color: #ffb728;
+}
