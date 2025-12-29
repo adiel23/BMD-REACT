@@ -16,3 +16,23 @@ export async function createMeetup(meetupData) {
 
     return data;
 }
+
+export async function getMeetups(filters) {
+    const response = await fetch('http://localhost:3000/meetups/filter', {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(filters)
+    });
+
+    const data = await response.json();
+
+    console.log("meetups: ", data.meetups);
+
+    if (!response.ok) {
+        throw new Error(data.message || 'Could not fetch meetups.');
+    }
+
+    return data.meetups;
+}
