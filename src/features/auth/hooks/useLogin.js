@@ -28,5 +28,5 @@ export function useLogin() {
         }
     }
 
-    return {setForm, submit, errorMessage};
+    return {navigate, setForm, submit, errorMessage};
 }

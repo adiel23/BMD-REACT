@@ -3,11 +3,11 @@ import Form from "../components/Form";
 import HomeIcon from "../components/HomeIcon";
 
 function LoginPage() {
-    const {setForm, submit, errorMessage} = useLogin();
+    const {navigate, setForm, submit, errorMessage} = useLogin();
 
     return (
         <>
-            <HomeIcon />
+            <HomeIcon onClick={() => navigate('/')} />
             <Form 
                 setForm={setForm}
                 onSubmit={submit}
