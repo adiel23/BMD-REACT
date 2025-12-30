@@ -18,11 +18,11 @@ function Form ({setForm, onSubmit, name, groups, errorMessage}) {
     return (
         <form className={styles.form} onSubmit={handleSubmit}>
             <h2 className={styles.form__title}>{name}</h2>
-            {groups.map((group, index) => {
+            {groups.map((group) => {
                 const {label, type, id, name} = group;
 
                 return <FormGroup 
-                    key={index}
+                    key={id}
                     label={label}
                     type={type}
                     id={id}
