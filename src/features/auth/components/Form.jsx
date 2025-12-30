@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styles from "./Form.module.css";
 import FormGroup from "./FormGroup";
 
-function Form ({setForm, onSubmit, name, groups, errorMessage}) {
+function Form ({setForm, onSubmit, name, groups, errorMessage, footerLink}) {
 
     function handleInputChange(event) {
         const {name, value} = event.target;
@@ -35,10 +35,10 @@ function Form ({setForm, onSubmit, name, groups, errorMessage}) {
                 && 
                 <p className={styles['form__error-message']}>{errorMessage}</p>
             }
-            {name === "Login" ? (
-                <p className={styles.form__message}>Don't have an account? <Link to="/register">Register here</Link></p>
-            ) : (
-                <p className={styles.form__message}>Already have an account? <Link to="/login">Login here</Link></p>
+            {footerLink && (
+                <p className={styles.form__message}>
+                    {footerLink.text} <Link to={footerLink.to}>{footerLink.linkText}</Link>
+                </p>
             )}
             <button type="submit" className={styles.form__button}>{name}</button>
         </form>

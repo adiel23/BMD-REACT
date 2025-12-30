@@ -17,6 +17,11 @@ function LoginPage() {
                     {label: "Password", type: "password", id: "password-input", name: "password"}
                 ]}
                 errorMessage={errorMessage}
+                footerLink={{
+                    text: "Don't have an account?",
+                    linkText: "Register here",
+                    to: "/register"
+                }}
             />
         </>
     );
