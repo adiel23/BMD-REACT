@@ -1,5 +1,7 @@
+const API_URL = import.meta.env.VITE_API_URL;
+
 export async function register(userInfo) {
-    const res = await fetch("http://localhost:3000/auth/register", {
+    const res = await fetch(`${API_URL}/auth/register`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -17,7 +19,7 @@ export async function register(userInfo) {
 }
 
 export async function login(credentials) {
-    const res = await fetch("http://localhost:3000/auth/login", {
+    const res = await fetch(`${API_URL}/auth/login`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -35,7 +37,7 @@ export async function login(credentials) {
 }
 
 export async function validateToken(token) {
-    const res = await fetch("http://localhost:3000/auth/validate-token", {
+    const res = await fetch(`${API_URL}/auth/validate-token`, {
         headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`

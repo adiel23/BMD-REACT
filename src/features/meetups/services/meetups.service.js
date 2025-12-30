@@ -1,5 +1,7 @@
+const API_URL = import.meta.env.VITE_API_URL;
+
 export async function createMeetup(meetupData) {
-    const response = await fetch('http://localhost:3000/meetups', {
+    const response = await fetch(`${API_URL}/meetups`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -18,7 +20,7 @@ export async function createMeetup(meetupData) {
 }
 
 export async function getMeetups(filters) {
-    const response = await fetch('http://localhost:3000/meetups/filter', {
+    const response = await fetch(`${API_URL}/meetups/filter`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
