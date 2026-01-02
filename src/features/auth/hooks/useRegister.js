@@ -13,10 +13,6 @@ export function useRegister() {
 
     const [errorMessage, setErrorMessage] = useState("");
 
-    function updateFormField(name, value) {
-        setForm(prevForm => ({...prevForm, [name]: value}));
-    }
-
     async function registerUser() {
         try {
             const data = await register(form);
@@ -30,5 +26,5 @@ export function useRegister() {
         }
     }
 
-    return {navigate, registerUser, form, updateFormField, errorMessage};
+    return {navigate, setForm, registerUser, errorMessage};
 }

@@ -1,0 +1,9 @@
+.form__group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form__input {
+    padding: 5px;
+}

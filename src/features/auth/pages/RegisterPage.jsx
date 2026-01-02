@@ -1,19 +1,29 @@
-import RegisterForm from "../components/RegisterForm";
+import Form from "../components/Form";
+import HomeIcon from "../components/HomeIcon";
 import { useRegister } from "../hooks/useRegister";
-import { FaHome } from "react-icons/fa";
-import styles from "./RegisterPage.module.css";
 
 function RegisterPage() {
-    const {navigate, registerUser, updateFormField, errorMessage} = useRegister();
-
-    function handleHomeIconClick() {
-        navigate('/')
-    }
+    const {navigate, setForm, registerUser, errorMessage} = useRegister();
 
     return (
         <>
-            <FaHome className={styles["home-icon"]} onClick={handleHomeIconClick} />
-            <RegisterForm onSubmit={registerUser} onInputChange={updateFormField} errorMessage={errorMessage} />
+            <HomeIcon onClick={() => navigate('/')} />
+            <Form
+                setForm={setForm}
+                onSubmit={registerUser}
+                name="Register"
+                groups={[
+                    {label: "Name", type: "text", id: "name-input", name: "name"},
+                    {label: "Email", type: "email", id: "email-input", name: "email"},
+                    {label: "Password", type: "password", id: "password-input", name: "password"}
+                ]}
+                errorMessage={errorMessage}
+                footerLink={{
+                    text: "Already have an account?",
+                    linkText: "Login here",
+                    to: "/login"
+                }}
+            />
         </>
     );       
 }
