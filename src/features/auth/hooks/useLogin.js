@@ -24,7 +24,7 @@ export function useLogin() {
             navigate('/');
         } catch (error) {
             console.error("Login error: ", error);
-            setErrorMessage("An error occurred during login. Please try again.");
+            setErrorMessage(error.message ||"An error occurred during login. Please try again.");
         }
     }
 
