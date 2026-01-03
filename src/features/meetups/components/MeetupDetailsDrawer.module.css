@@ -1,0 +1,63 @@
+.meetup-drawer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: white;
+    padding: 20px;
+    height: 100%;
+    width: 100%;
+}
+
+.meetup-drawer__date {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.meetup-drawer__date-icon {
+    font-size: 20px;
+    color: #555;
+}
+
+.meetup-drawer__media {
+    display: flex;
+    gap: 15px;
+}
+
+.meetup-drawer__media-icon {
+    font-size: 24px;
+    color: #555;
+    cursor: pointer;
+}
+
+.meetup-drawer__media-icon--fb {
+    color: #3b5998;
+}
+
+.meetup-drawer__media-icon--ig {
+    color: #e4405f;
+}
+
+.meetup-drawer__media-icon--wsp {
+    color: #25d366;
+}
+
+.meetup-drawer__close-icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    color: #555;
+    cursor: pointer;
+}
+
+@media (min-width: 400px) {
+    .meetup-drawer {
+        width: 400px;
+        box-shadow: 10px 0px 10px 10px rgba(0, 0, 0, 0.1);
+    }
+}
