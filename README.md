@@ -40,10 +40,27 @@ A React-based web application for discovering and creating Bitcoin meetups in El
 
 - Node.js (v18 or higher recommended)
 - npm or yarn package manager
+- **Backend API**: This frontend requires the [bmd-backend](https://github.com/adiel23/bmd-backend) server to be running locally
 
 ## 🛠️ Installation
 
-1. Clone the repository:
+### Backend Setup (Required)
+
+This frontend application requires the backend API to be running. Follow these steps first:
+
+1. Clone and set up the backend repository:
+```bash
+git clone https://github.com/adiel23/bmd-backend.git
+cd bmd-backend
+```
+
+2. Follow the installation and setup instructions in the bmd-backend repository to start the backend server.
+
+3. Note the backend API URL (typically `http://localhost:3000` or similar).
+
+### Frontend Setup
+
+1. Clone this repository:
 ```bash
 git clone https://github.com/adiel23/BMD-REACT.git
 cd BMD-REACT
@@ -54,12 +71,20 @@ cd BMD-REACT
 npm install
 ```
 
-3. Start the development server:
+3. Create a `.env` file in the root directory and configure the backend API URL:
+```env
+VITE_API_URL=http://localhost:3000
+```
+*Replace the URL with your actual backend server URL if different.*
+
+4. Start the development server:
 ```bash
 npm run dev
 ```
 
-4. Open your browser and navigate to the URL shown in the terminal (typically `http://localhost:5173`)
+5. Open your browser and navigate to the URL shown in the terminal (typically `http://localhost:5173`)
+
+**Note**: Both the backend server and frontend development server must be running simultaneously for the application to work properly.
 
 ## 💡 Usage
 
