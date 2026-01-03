@@ -1,16 +1,128 @@
-# React + Vite
+# Bitcoin Meetups Directory (BMD-REACT)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based web application for discovering and creating Bitcoin meetups in El Salvador. This platform allows users to explore Bitcoin meetup events on an interactive map, view detailed information about meetups, and create new meetup events.
 
-Currently, two official plugins are available:
+## 🌟 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 🗺️ Interactive Meetups Map
+- Browse Bitcoin meetups on an interactive map powered by Leaflet
+- View meetup locations with markers
+- Click markers to see detailed meetup information
+- Search for specific meetups
+- Zoom and pan to explore different areas
 
-## React Compiler
+### 📍 Meetup Management
+- **View Meetup Details**: Access comprehensive information including title, description, date, and time
+- **Create New Meetups**: Add new Bitcoin meetup events with location details
+- **Search Functionality**: Find meetups quickly using the search feature
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 🔐 User Authentication
+- User registration with name, email, and password
+- Secure login system
+- Protected routes for authenticated users
 
-## Expanding the ESLint configuration
+### 🏠 Home Dashboard
+- Clean landing page with quick navigation
+- Direct access to the map view
+- Easy meetup creation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Tech Stack
+
+- **Frontend Framework**: React 19.2.0
+- **Build Tool**: Vite 7.2.4
+- **Routing**: React Router DOM 7.9.6
+- **Map Integration**: Leaflet 1.9.4 & React-Leaflet 5.0.0
+- **Icons**: React Icons 5.5.0
+- **Linting**: ESLint 9.39.1
+- **Styling**: CSS Modules
+
+## 📋 Prerequisites
+
+- Node.js (v18 or higher recommended)
+- npm or yarn package manager
+
+## 🛠️ Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/adiel23/BMD-REACT.git
+cd BMD-REACT
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Start the development server:
+```bash
+npm run dev
+```
+
+4. Open your browser and navigate to the URL shown in the terminal (typically `http://localhost:5173`)
+
+## 📜 Available Scripts
+
+- `npm run dev` - Starts the development server with hot module replacement
+- `npm run build` - Creates an optimized production build
+- `npm run preview` - Previews the production build locally
+- `npm run lint` - Runs ESLint to check code quality
+
+## 📁 Project Structure
+
+```
+BMD-REACT/
+├── src/
+│   ├── features/
+│   │   ├── auth/              # Authentication feature
+│   │   │   ├── components/    # Form components, HomeIcon
+│   │   │   ├── hooks/         # useLogin, useRegister
+│   │   │   ├── pages/         # LoginPage, RegisterPage
+│   │   │   └── services/      # Auth API services
+│   │   ├── home/              # Home page feature
+│   │   │   ├── hooks/         # Navigation hooks
+│   │   │   └── pages/         # Home landing page
+│   │   └── meetups/           # Meetups feature
+│   │       ├── components/    # Map, Search, Form components
+│   │       ├── hooks/         # Meetup-related hooks
+│   │       ├── pages/         # MeetupsMapPage, CreateMeetupPage
+│   │       └── services/      # Meetups API services
+│   ├── App.jsx                # Main app component with routing
+│   ├── main.jsx               # App entry point
+│   └── all.css                # Global styles
+├── index.html                 # HTML template
+├── package.json               # Dependencies and scripts
+├── vite.config.js             # Vite configuration
+└── eslint.config.js           # ESLint configuration
+```
+
+## 🗺️ Routes
+
+- `/` - Home page with navigation options
+- `/meetups-map` - Interactive map showing all meetups
+- `/create-meetup` - Form to create a new meetup
+- `/login` - User login page
+- `/register` - User registration page
+
+## 💡 Usage
+
+1. **Viewing Meetups**: Click "Open Map" on the home page to browse all Bitcoin meetups in El Salvador
+2. **Search**: Use the search feature on the map to find specific meetups
+3. **Create Meetup**: Click "Create Meetup" and fill in the required details (requires authentication)
+4. **Authentication**: Register or login to access protected features
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📄 License
+
+This project is available for use under the repository's license terms.
+
+## 👨‍💻 Author
+
+Created by [adiel23](https://github.com/adiel23)
+
+---
+
+Built with ⚡ Vite and ⚛️ React
