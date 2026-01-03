@@ -2,7 +2,7 @@ import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import CustomControl from "./CustomControl";
 import UpdateMapView from "./UpdateMapView";
 
-function MeetupsMap({position, zoom, meetups, onOpenSearch}) {
+function MeetupsMap({position, zoom, meetups, onOpenSearch, onMarkerClick}) {
     return (
         <MapContainer center={position} zoom={zoom} style={{ height: '100%', width: '100%' }}>
         
@@ -12,11 +12,13 @@ function MeetupsMap({position, zoom, meetups, onOpenSearch}) {
             />
 
             {meetups.map(meetup => (
-                <Marker key={meetup.id} position={[meetup.latitude, meetup.longitude]}>
-                    <Popup>
-                        <strong>{meetup.title}</strong><br />
-                        {meetup.description}
-                    </Popup>
+                <Marker 
+                    key={meetup.id} 
+                    position={[meetup.latitude, meetup.longitude]}
+                    eventHandlers={{
+                        click: () => onMarkerClick && onMarkerClick(meetup)
+                    }}
+                >
                 </Marker>
             ))}
 
