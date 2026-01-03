@@ -61,6 +61,13 @@ npm run dev
 
 4. Open your browser and navigate to the URL shown in the terminal (typically `http://localhost:5173`)
 
+## 💡 Usage
+
+1. **Viewing Meetups**: Click "Open Map" on the home page to browse all Bitcoin meetups in El Salvador
+2. **Search**: Use the search feature on the map to find specific meetups
+3. **Create Meetup**: Click "Create Meetup" and fill in the required details (requires authentication)
+4. **Authentication**: Register or login to access protected features
+
 ## 📜 Available Scripts
 
 - `npm run dev` - Starts the development server with hot module replacement
@@ -103,13 +110,6 @@ BMD-REACT/
 - `/create-meetup` - Form to create a new meetup
 - `/login` - User login page
 - `/register` - User registration page
-
-## 💡 Usage
-
-1. **Viewing Meetups**: Click "Open Map" on the home page to browse all Bitcoin meetups in El Salvador
-2. **Search**: Use the search feature on the map to find specific meetups
-3. **Create Meetup**: Click "Create Meetup" and fill in the required details (requires authentication)
-4. **Authentication**: Register or login to access protected features
 
 ## 🤝 Contributing
 
