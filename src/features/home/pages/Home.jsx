@@ -1,8 +1,16 @@
-import { useHomeNavigation } from "../hooks/useHomeNavigation";
+import { useNavigate } from "react-router-dom";
 import styles from "./Home.module.css";
 
 function Home() {
-    const {goToMap, goToCreateMeetup} = useHomeNavigation();
+    const navigate = useNavigate();
+
+    function goToMap() {
+        navigate("/meetups-map");
+    }
+    
+    function goToCreateMeetup() {
+        navigate("/create-meetup");
+    }
     
     return (
         <div className={styles.home}>
