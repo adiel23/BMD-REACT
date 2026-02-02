@@ -4,6 +4,7 @@ import MeetupsMapPage from "./features/meetups/pages/MeetupsMapPage";
 import CreateMeetupPage from "./features/meetups/pages/CreateMeetupPage";
 import LoginPage from "./features/auth/pages/LoginPage";
 import RegisterPage from "./features/auth/pages/RegisterPage";
+import ProtectedRoute from "./features/auth/components/ProtectedRoute";
 
 function App() {
   return (
@@ -11,7 +12,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/meetups-map" element={<MeetupsMapPage/>}/>
-        <Route path="/create-meetup" element={<CreateMeetupPage/>} />
+        <Route path="/create-meetup" element={
+          <ProtectedRoute>
+            <CreateMeetupPage/>
+          </ProtectedRoute>
+        } />
         <Route path="/login" element={<LoginPage/>} />
         <Route path="/register" element={<RegisterPage/>} />
       </Routes>
