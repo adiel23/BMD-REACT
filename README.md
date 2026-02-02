@@ -1,6 +1,6 @@
-# Bitcoin Meetups Directory (BMD-REACT)
+# Bitcoin Meetups Directory.
 
-A React-based web application for discovering and creating Bitcoin meetups in El Salvador. This platform allows users to explore Bitcoin meetup events on an interactive map, view detailed information about meetups, and create new meetup events.
+A web application for discovering and creating Bitcoin meetups in El Salvador. This platform allows users to explore Bitcoin meetup events on an interactive map, view detailed information about meetups, and create new meetup events.
 
 ## 🌟 Features
 
